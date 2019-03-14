@@ -1,24 +1,24 @@
 const server = require('./lib/server');
 const workers = require('./lib/workers');
 const cli = require('./lib/cli');
+const exampleDebuggingProblem = require('./lib/exampleDebuggingProblem');
 
  const app = {
-    init: (callback) => {
+    init: () => {
         //start server
         server.init();
+        debugger;
         //start the workers
         workers.init();
         setTimeout(() => {
             cli.init();
-            callback();
         }, 500);
+        debugger;
+        exampleDebuggingProblem.init();
+        debugger;
     }
  }
 
- //self invoking only if required directly 
- //returns true if this file is executed directly from the terminal and not when in another module
- if(require.main === module) {
-    app.init(() => {});
- }
+ app.init();
 
  module.exports = app;
