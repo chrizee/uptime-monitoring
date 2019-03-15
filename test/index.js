@@ -2,6 +2,7 @@
 
 //override the NODE_ENV variable
 process.env.NODE_ENV = 'testing';
+process.env.NODE_DISABLE_COLORS;
 
 const _app = {
     tests: {
